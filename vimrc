@@ -607,6 +607,8 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'groenewege/vim-less'
 
 " c) 指定非Github的Git仓库的插件，需要使用git地址
 "Bundle 'git://git.wincent.com/command-t.git'
@@ -616,11 +618,13 @@ Bundle 'https://github.com/Lokaltog/vim-powerline.git'
 " d) 指定本地Git仓库中的插件
 "Bundle 'file:///Users/gmarik/path/to/plugin'
 
+
 filetype plugin indent on     " required!
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 set encoding=utf-8 fileencodings=utf-8
+
 
 
 
