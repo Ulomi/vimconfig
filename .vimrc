@@ -1,93 +1,9 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: amix the lucky stiff
-"             http://amix.dk - amix@amix.dk
+" Ulomi's vimconfig 
 "
-" Version: 3.6 - 25/08/10 14:40:30
+" personal site: Loammi.me
 "
-" Blog_post: 
-"       http://amix.dk/blog/post/19486#The-ultimate-vim-configuration-vimrc
-" Syntax_highlighted:
-"       http://amix.dk/vim/vimrc.html
-" Raw_version: 
-"       http://amix.dk/vim/vimrc.txt
-"
-" How_to_Install_on_Unix:
-"    $ mkdir ~/.vim_runtime
-"    $ svn co svn://orangoo.com/vim ~/.vim_runtime
-"    $ cat ~/.vim_runtime/install.sh
-"    $ sh ~/.vim_runtime/install.sh <system>
-"      <sytem> can be `mac`, `linux` or `windows`
-"
-" How_to_Upgrade:
-"    $ svn update ~/.vim_runtime
-"
-" Sections:
-"    -> General
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Command mode related
-"    -> Moving around, tabs and buffers
-"    -> Statusline
-"    -> Parenthesis/bracket expanding
-"    -> General Abbrevs
-"    -> Editing mappings
-"
-"    -> Cope
-"    -> Minibuffer plugin
-"    -> Omni complete functions
-"    -> Python section
-"    -> JavaScript section
-"
-"
-" Plugins_Included:
-"     > minibufexpl.vim - http://www.vim.org/scripts/script.php?script_id=159
-"       Makes it easy to get an overview of buffers:
-"           info -> :e ~/.vim_runtime/plugin/minibufexpl.vim
-"
-"     > bufexplorer - http://www.vim.org/scripts/script.php?script_id=42
-"       Makes it easy to switch between buffers:
-"           info -> :help bufExplorer
-"
-"     > yankring.vim - http://www.vim.org/scripts/script.php?script_id=1234
-"       Emacs's killring, useful when using the clipboard:
-"           info -> :help yankring
-"
-"     > surround.vim - http://www.vim.org/scripts/script.php?script_id=1697
-"       Makes it easy to work with surrounding text:
-"           info -> :help surround
-"
-"     > snipMate.vim - http://www.vim.org/scripts/script.php?script_id=2540
-"       Snippets for many languages (similar to TextMate's):
-"           info -> :help snipMate
-"
-"     > mru.vim - http://www.vim.org/scripts/script.php?script_id=521
-"       Plugin to manage Most Recently Used (MRU) files:
-"           info -> :e ~/.vim_runtime/plugin/mru.vim
-"
-"     > Command-T - http://www.vim.org/scripts/script.php?script_id=3025
-"       Command-T plug-in provides an extremely fast, intuitive mechanism for opening filesa:
-"           info -> :help CommandT
-"           screencast and web-help -> http://amix.dk/blog/post/19501
-"
-"
-"  Revisions:
-"     > 3.6: Added lots of stuff (colors, Command-T, Vim 7.3 persistent undo etc.)
-"     > 3.5: Paste mode is now shown in status line  if you are in paste mode
-"     > 3.4: Added mru.vim
-"     > 3.3: Added syntax highlighting for Mako mako.vim 
-"     > 3.2: Turned on python_highlight_all for better syntax
-"            highlighting for Python
-"     > 3.1: Added revisions ;) and bufexplorer.vim
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" github: Ulomi
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -157,7 +73,11 @@ set tm=500
 syntax enable "开启代码高亮
 
 set background=dark
+" set background=light
 colorscheme solarized
+
+" colorscheme molokai
+
 set guifont=MONACO:h14
 func! MySys()
   return "mac"
@@ -585,39 +505,42 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set rtp+=~/.vim/bundle/vundle/
+"
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " 可以通过以下四种方式指定插件的来源
 " a) 指定Github中vim-scripts仓库中的插件，直接指定插件名称即可，插件明中的空格使用“-”代替。
-Bundle 'L9'
-Bundle 'snipMate'
+Plugin 'L9'
+Plugin 'snipMate'
 
 " b) 指定Github中其他用户仓库的插件，使用“用户名/插件名称”的方式指定
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Yggdroot/indentLine'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'groenewege/vim-less'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plugin 'tpope/vim-rails.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'groenewege/vim-less'
 
 " c) 指定非Github的Git仓库的插件，需要使用git地址
 "Bundle 'git://git.wincent.com/command-t.git'
 
-Bundle 'https://github.com/Lokaltog/vim-powerline.git'
+Plugin 'https://github.com/Lokaltog/vim-powerline.git'
 
 " d) 指定本地Git仓库中的插件
 "Bundle 'file:///Users/gmarik/path/to/plugin'
 
+call vundle#end()             " required
 
 filetype plugin indent on     " required!
 
